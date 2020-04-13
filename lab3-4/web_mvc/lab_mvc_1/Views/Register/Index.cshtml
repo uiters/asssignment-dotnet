@@ -1,0 +1,33 @@
+@{
+ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form action="~/Register/AddNewAccount" method="post">
+    <table>
+        <caption>
+            <h3>Register Form</h3>
+        </caption>
+        <tr>
+            <td>Username : </td>
+            <td><input type="text" name="username" required id=""></td>
+        </tr>
+        <tr>
+            <td>Password : </td>
+            <td><input type="text" name="password" required id=""></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Save"></td>
+            <td><input type="reset" value="Reset"></td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Login","Index","Home")</td>
+        </tr>
+
+        <tr>
+            <td>@ViewBag.Message</td>
+        </tr>
+    </table>
+</form>

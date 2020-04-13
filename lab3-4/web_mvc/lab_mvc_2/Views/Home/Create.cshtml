@@ -1,0 +1,24 @@
+@model lab_mvc_2.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@using (Html.BeginForm()){
+    <fieldset>
+        <legend>Product</legend>
+        @Html.Partial("pvCreateOrEdit", Model)
+
+        <p><input type="submit" value="Add"></p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("View Product List", "ViewAllProducts");
+</div>
+
+<div>
+    @ViewBag.Message
+</div>

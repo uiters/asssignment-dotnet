@@ -1,0 +1,27 @@
+@model lab_mvc_2.Models.Product
+
+<div>
+    @Html.LabelFor(model => model.ProductID)
+    <div>
+        @if (TempData["CreateOrEdit"] == "Edit"){
+            @Html.TextBoxFor(model => model.ProductID, new {@readonly = "readonly"})
+        }
+        else if (TempData["CreateOrEdit"] == "Create")
+        {
+            @Html.EditorFor(model => model.ProductID)
+        }
+    </div>
+</div>
+
+<div>
+    @Html.LabelFor(model => model.ProductName)
+    <div> @Html.EditorFor(model => model.ProductName)</div>
+</div>
+<div>
+    @Html.LabelFor(model => model.UnitPrice)
+    <div> @Html.EditorFor(model => model.UnitPrice)</div>
+</div>
+<div>
+    @Html.LabelFor(model => model.Quantity)
+    <div> @Html.EditorFor(model => model.Quantity)</div>
+</div>

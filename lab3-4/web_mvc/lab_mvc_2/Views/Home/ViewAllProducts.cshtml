@@ -1,0 +1,58 @@
+@model IEnumerable<lab_mvc_2.Models.Product>
+
+@{
+    ViewData["Title"] = "ViewAllProducts";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>@Html.ActionLink("Add new product", "Create")</p>
+
+@if(Model.Count() > 0){
+    <table class="table" width="500"> 
+        <tr>
+            <th width="50">
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th width="100">
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th width="80">
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th width="80">
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th width="50">
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td align="center">
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td align="right">
+                    @Html.ActionLink("Edit","Edit", new {ProId = item.ProductID}) |
+                    @Html.ActionLink("Delete","Delete", new {ProId = item.ProductID})
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h4>Product List is Empty</h4>
+}
